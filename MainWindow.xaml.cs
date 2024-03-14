@@ -17,14 +17,17 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
     /// 
     public partial class MainWindow : Window
     {
-        
+        Dog dog = new Dog();
+        DateTime todaysDate = DateTime.Now.Date;
+
 
         public MainWindow()
         {
             InitializeComponent();
             btnCalculate.IsEnabled = false;
-
+            
         }
+
 
         private void txtCurrentDate_Initialized(object sender, EventArgs e)
         {
@@ -35,10 +38,10 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
         private void btnCalculate_Click(object sender, RoutedEventArgs e)
         {
             AlwaysRunning();
-            if (dogbdayvalid == true)
+            if (dog.getDogBdayValid() == true)
             {
-                dogHumanYears = ((DateTime.Today - dogBirthday).Days)/365;
-                txtDogYears.Text = dogHumanYears.ToString();
+                dog.setDogAgeInDogYears(dog.DogYearCalculation(dog.getDogHumanAge(),dog.getDogWeight()));
+                txtDogYears.Text = (dog.getDogAgeinDogYears().ToString());
             }
         }
 
@@ -88,8 +91,10 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
             }
             else
             {
-                dogBirthday = calDogBirthday.SelectedDate.Value;
-                dogbdayvalid = true;
+                DateTime pl = calDogBirthday.SelectedDate.Value;
+                dog.setDogBirthday(pl);
+                dog.setDogHumanAge(Int32.Parse(TimeSpan.Parse(DateTime.Now.Date - pl)));
+                dog.setDogBdayValid(true);
                 btnCalculate.IsEnabled = true;
             }
         }
@@ -97,6 +102,33 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
         private void calDogBirthday_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
             BirthdayValidator();
+            
+            
+        }
+
+        private void txtDogWeight_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtDogWeight.Text != "0" && txtDogWeight.Text != "")
+            {
+                dog.setDogWeight(int.Parse(txtDogWeight.Text));
+            }
+        }
+
+        private void txtDogWeight_GotFocus(object sender, RoutedEventArgs e)
+        {
+             if(txtDogWeight.Text == "0")
+             {
+                txtDogWeight.Clear();
+             }
+
+        }
+
+        private void txtDogWeight_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtDogWeight.Text == "")
+            {
+                txtDogWeight.Text = "0";
+            }
 
         }
     }

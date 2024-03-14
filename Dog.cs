@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,72 +10,160 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
     class Dog
     {
         bool dogbdayvalid;
-         int dogHumanYears; 
-         DateTime dogBirthday;
+        static int dogAgeInHumanYears;
+        int dogHumanAge;
+        int dogAgeinDogYears;
+        DateTime dogBirthday;
         int dogAge;
+        int dogWeight;
 
-        public Dog(int dogsHumanYears,int age, bool isorisnot, DateTime dogsBirthday) 
+        List<int> smallDog = [15, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80];
+        List<int> mediumDog = [15, 24, 28, 32, 36, 42, 47, 51, 56, 60, 65, 69, 74, 78, 83, 87];
+        List<int> largeDog = [15, 24, 28, 32, 36, 45, 50, 55, 61, 66, 72, 77, 82, 88, 93, 99];
+        List<int> giantDog = [12,22,31,38,45,49,56,64,71,79,86,93,100,107,114,121];
+
+
+        public Dog(int dogsHumanYears,int age, bool isorisnot, DateTime dogsBirthday, int dogWeight,int dogHumanAge) 
         {
             this.dogbdayvalid = isorisnot;
-            this.dogHumanYears = dogsHumanYears;
+            this.dogAgeinDogYears = dogsHumanYears;
             this.dogAge = age;
             this.dogBirthday = dogsBirthday;
+            this.dogWeight = dogWeight;
+            this.dogHumanAge = dogHumanAge;
 
         }
 
-        public Dog(int dogsHumanYears, int age, DateTime dogsBirthday)
+        public Dog(int dogAgeinDogYears, int age, DateTime dogsBirthday, int dogWeight, int dogHumanAge)
         {
             this.dogbdayvalid = false;
-            this.dogHumanYears = dogsHumanYears;
+            this.dogAgeinDogYears = dogAgeinDogYears;
             this.dogAge = age;
             this.dogBirthday = dogsBirthday;
+            this.dogWeight = dogWeight;
+            this.dogHumanAge = dogHumanAge;
+
 
         }
 
-        public Dog(int dogsHumanYears,DateTime dogsBirthday)
+        public Dog(int dogAgeinDogYears, DateTime dogsBirthday, int dogWeight, int dogHumanAge)
         {
             this.dogAge = 0;
-            this.dogHumanYears = dogsHumanYears;
+            this.dogAgeinDogYears = dogAgeinDogYears;
             this.dogBirthday = dogsBirthday;
             this.dogbdayvalid = false;
+            this.dogWeight = dogWeight;
+            this.dogHumanAge = dogHumanAge;
+
         }
 
-        public Dog(DateTime dogsBirthday)
+        public Dog(DateTime dogsBirthday, int dogWeight, int dogHumanAge)
         {
             this.dogAge = 0;
-            this.dogHumanYears = 0;
+            this.dogAgeinDogYears = 0;
             this.dogBirthday = dogsBirthday;
             this.dogbdayvalid = false;
+            this.dogWeight = dogWeight;
+            this.dogHumanAge = dogHumanAge;
+
+        }
+        public Dog(DateTime dogsBirthday, int dogWeight)
+        {
+            this.dogAge = 0;
+            this.dogAgeinDogYears = 0;
+            this.dogBirthday = dogsBirthday;
+            this.dogbdayvalid = false;
+            this.dogWeight = dogWeight;
+            this.dogHumanAge = 0;
+
         }
         public Dog()
         {
             this.dogAge = 0;
-            this.dogHumanYears = 0;
+            this.dogAgeinDogYears = 0;
             this.dogBirthday = DateTime.Today;
             this.dogbdayvalid = false;
+            this.dogWeight = 0;
+            this.dogHumanAge = 0;
+
         }
 
         public void setDogAge(int age) 
         {
             this.dogAge = age; 
         }
+        public void setDogWeight(int dogWeight)
+        {
+             this.dogWeight = dogWeight;
+        }
 
-        public void setDogBdayValid(bool isornot)
+        public  void setDogBdayValid(bool isornot)
         {
             this.dogbdayvalid = isornot;
         }
-        public void setDogHumanYears(int dogsHumanYears)
+        public  void setDogAgeInDogYears(int dogsHumanYears)
         {
-            this.dogHumanYears = dogsHumanYears;
+            this.dogAgeinDogYears = dogsHumanYears;
         }
-        public void setDogBirthday(DateTime dogsBirthday)
+        public  void setDogBirthday(DateTime dogsBirthday)
         {
             this.dogBirthday = dogsBirthday;
         }
 
-        public static getDogAge()
+        public void setDogHumanAge(int dogHumanAge)
         {
-            return 
+            this.dogHumanAge = dogHumanAge;
+        }
+
+        public int getDogAge()
+        {
+            return dogAge;
+        }
+
+        public DateTime getDogBirthday()
+        {
+            return dogBirthday;
+        }
+        public int getDogAgeinDogYears()
+        {
+            return dogAgeinDogYears;
+        }
+        public int getDogHumanAge()
+        {
+            return dogHumanAge;
+        }
+        public bool getDogBdayValid()
+        {
+            return dogbdayvalid;
+        }
+        public int getDogWeight()
+        {
+            return dogWeight;
+        }
+
+        public int DogYearCalculation(int dogAgeInDogHumanYears, int dogWeight)
+        {
+            int age = 0;
+
+            if(dogWeight <= 20)
+            {
+               age = smallDog[dogAgeInDogHumanYears];
+            }
+            if (dogWeight >= 21 && dogWeight <= 50)
+            {
+                age = mediumDog[dogAgeInDogHumanYears];
+            }
+            if (dogWeight >= 51 && dogWeight <= 100)
+            {
+                age = largeDog[dogAgeInDogHumanYears];
+            }
+            if (dogWeight > 100)
+            {
+                age = giantDog[dogAgeInDogHumanYears];
+            }
+
+            return age;
+            
         }
     }
 }

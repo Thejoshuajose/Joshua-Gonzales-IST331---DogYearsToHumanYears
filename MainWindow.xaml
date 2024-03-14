@@ -5,16 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Joshua_Gonzales___IST331___DogYearsToHumanYears"
         mc:Ignorable="d"
-        Title="Joshua Gonzales ~ IST331 - DogYearCalculator" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
-    <Grid MouseMove="Grid_MouseMove">
+        Title="Joshua Gonzales ~ IST331 - DogYearCalculator" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Foreground="Black">
+    <Grid x:Name="grdMain" MouseMove="Grid_MouseMove">
         <Label x:Name="lblTiitle" Content="Dog Year Calculator" HorizontalAlignment="Center" Height="51" Margin="0,10,0,0" VerticalAlignment="Top" Width="232" FontSize="24" FontWeight="Bold"/>
         <Calendar x:Name="calDogBirthday" HorizontalAlignment="Left" Height="187" Margin="46,107,0,0" VerticalAlignment="Top" Width="221" GotFocus="calDogBirthday_GotFocus" LostFocus="calDogBirthday_LostFocus" DisplayDateChanged="calDogBirthday_DisplayDateChanged" DataContextChanged="calDogBirthday_DataContextChanged" Foreground="Red" IsTodayHighlighted="False" SelectedDatesChanged="calDogBirthday_SelectedDatesChanged"/>
         <TextBox x:Name="txtCurrentDate" HorizontalAlignment="Left" Height="50" Margin="539,107,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="201" Focusable="False" FontSize="16" Initialized="txtCurrentDate_Initialized"/>
         <Label x:Name="lblCurrentDate" Content="Current Date" HorizontalAlignment="Left" Height="28" Margin="539,75,0,0" VerticalAlignment="Top" Width="201" FontSize="14" FontWeight="Bold"/>
         <Label x:Name="lblDogBirthday" Content="What is Your Dog's Birthday?" HorizontalAlignment="Left" Height="28" Margin="56,75,0,0" VerticalAlignment="Top" Width="201" FontSize="14" FontWeight="Bold"/>
-        <Button x:Name="btnCalculate" Content="Calculate" HorizontalAlignment="Left" Height="44" Margin="23,369,0,0" VerticalAlignment="Top" Width="185" Click="btnCalculate_Click"/>
+        <Button x:Name="btnCalculate" Content="Calculate" HorizontalAlignment="Left" Height="44" Margin="64,368,0,0" VerticalAlignment="Top" Width="185" Click="btnCalculate_Click"/>
         <TextBox x:Name="txtDogYears" HorizontalAlignment="Left" Height="50" Margin="539,217,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="201" Focusable="False" FontSize="16" Initialized="txtCurrentDate_Initialized"/>
         <Label x:Name="lblDogYears" Content="Dog Years" HorizontalAlignment="Left" Height="28" Margin="539,189,0,0" VerticalAlignment="Top" Width="201" FontSize="14" FontWeight="Bold"/>
+        <TextBox x:Name="txtDogWeight" HorizontalAlignment="Center" Height="50" Margin="0,217,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="200" FontSize="16" Initialized="txtCurrentDate_Initialized" TextChanged="txtDogWeight_TextChanged" GotFocus="txtDogWeight_GotFocus" LostFocus="txtDogWeight_LostFocus"/>
+        <Label x:Name="lblDogWeight" Content="Dog Weight" HorizontalAlignment="Center" Height="28" Margin="0,189,0,0" VerticalAlignment="Top" Width="200" FontSize="14" FontWeight="Bold"/>
 
     </Grid>
 </Window>
