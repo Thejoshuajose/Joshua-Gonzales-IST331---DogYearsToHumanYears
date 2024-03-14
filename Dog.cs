@@ -13,9 +13,45 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
          DateTime dogBirthday;
         int dogAge;
 
-        public Dog() 
+        public Dog(int dogsHumanYears,int age, bool isorisnot, DateTime dogsBirthday) 
         {
+            this.dogbdayvalid = isorisnot;
+            this.dogHumanYears = dogsHumanYears;
+            this.dogAge = age;
+            this.dogBirthday = dogsBirthday;
 
+        }
+
+        public Dog(int dogsHumanYears, int age, DateTime dogsBirthday)
+        {
+            this.dogbdayvalid = false;
+            this.dogHumanYears = dogsHumanYears;
+            this.dogAge = age;
+            this.dogBirthday = dogsBirthday;
+
+        }
+
+        public Dog(int dogsHumanYears,DateTime dogsBirthday)
+        {
+            this.dogAge = 0;
+            this.dogHumanYears = dogsHumanYears;
+            this.dogBirthday = dogsBirthday;
+            this.dogbdayvalid = false;
+        }
+
+        public Dog(DateTime dogsBirthday)
+        {
+            this.dogAge = 0;
+            this.dogHumanYears = 0;
+            this.dogBirthday = dogsBirthday;
+            this.dogbdayvalid = false;
+        }
+        public Dog()
+        {
+            this.dogAge = 0;
+            this.dogHumanYears = 0;
+            this.dogBirthday = DateTime.Today;
+            this.dogbdayvalid = false;
         }
 
         public void setDogAge(int age) 
@@ -36,7 +72,7 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
             this.dogBirthday = dogsBirthday;
         }
 
-        public  getDogAge()
+        public static getDogAge()
         {
             return 
         }
