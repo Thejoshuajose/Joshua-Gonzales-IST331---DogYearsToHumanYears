@@ -15,12 +15,15 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
         int dogAgeinDogYears;
         DateTime dogBirthday;
         int dogAge;
+        float dogMonth;
         int dogWeight;
+        string dogMonthAge;
+        
 
-        List<int> smallDog = [15, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80];
-        List<int> mediumDog = [15, 24, 28, 32, 36, 42, 47, 51, 56, 60, 65, 69, 74, 78, 83, 87];
-        List<int> largeDog = [15, 24, 28, 32, 36, 45, 50, 55, 61, 66, 72, 77, 82, 88, 93, 99];
-        List<int> giantDog = [12,22,31,38,45,49,56,64,71,79,86,93,100,107,114,121];
+        List<int> smallDog = [0,15, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80];
+        List<int> mediumDog = [0,15, 24, 28, 32, 36, 42, 47, 51, 56, 60, 65, 69, 74, 78, 83, 87];
+        List<int> largeDog = [0,15, 24, 28, 32, 36, 45, 50, 55, 61, 66, 72, 77, 82, 88, 93, 99];
+        List<int> giantDog = [0,12,22,31,38,45,49,56,64,71,79,86,93,100,107,114,121];
 
 
         public Dog(int dogsHumanYears,int age, bool isorisnot, DateTime dogsBirthday, int dogWeight,int dogHumanAge) 
@@ -114,6 +117,11 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
         {
             this.dogHumanAge = dogHumanAge;
         }
+        
+        public void setDogMonthAge(string dogMonthAge)
+        {
+            this.dogMonthAge = dogMonthAge;
+        }
 
         public int getDogAge()
         {
@@ -141,6 +149,11 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
             return dogWeight;
         }
 
+        public string getDogMonthAge()
+        {
+            return dogMonthAge;
+        }
+
         public int DogYearCalculation(int dogAgeInDogHumanYears, int dogWeight)
         {
             int age = 0;
@@ -164,6 +177,17 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
 
             return age;
             
+        }
+
+
+        public string DogMonthCalculation(float dogMonth)
+        {
+            double mon = 0;
+            mon = (double)(Math.Round(((dogMonth * 12)*1.25),2));
+
+            string months = mon.ToString();
+
+            return months;
         }
     }
 }

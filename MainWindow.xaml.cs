@@ -38,11 +38,12 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
         private void btnCalculate_Click(object sender, RoutedEventArgs e)
         {
             AlwaysRunning();
-            for(int i=0;i<2; i++)
+            BirthdayValidator();
+            for (int i=0;i<2; i++)
                 if (dog.getDogBdayValid() == true)
                 {
                 dog.setDogAgeInDogYears(dog.DogYearCalculation(dog.getDogHumanAge(), dog.getDogWeight()));
-                txtDogYears.Text = (dog.getDogAgeinDogYears().ToString());
+                txtDogYears.Text = (dog.getDogAgeinDogYears().ToString()+" years " + dog.getDogMonthAge() + " months");
                 }
         }
 
@@ -59,7 +60,7 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
         private void Grid_MouseMove(object sender, MouseEventArgs e)
         {
             
-            AlwaysRunning();
+            //AlwaysRunning();
         }
 
         private void calDogBirthday_DisplayDateChanged(object sender, CalendarDateChangedEventArgs e)
@@ -95,9 +96,13 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
                 DateTime dogBirthday = calDogBirthday.SelectedDate ?? DateTime.MinValue;
                 dog.setDogBirthday(dogBirthday);
                 TimeSpan t1 = DateTime.Today - dogBirthday;
-                int dogHumanAge = (int)((t1.TotalDays/365)-1);
-
+                float dogmonthcalcvar = (float)(t1.TotalDays / 30.4166667);
+                
+                double years = (dogmonthcalcvar / 12);
+                int dogHumanAge = (int)years ;
+                dog.setDogMonthAge(dog.DogMonthCalculation( (float) ((dogmonthcalcvar/12)-Math.Floor(dogmonthcalcvar / 12))));
                 dog.setDogHumanAge(dogHumanAge);
+                
 
                 dog.setDogBdayValid(true);
                 btnCalculate.IsEnabled = true;
