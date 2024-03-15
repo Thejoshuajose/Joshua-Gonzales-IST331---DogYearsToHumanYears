@@ -38,11 +38,12 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
         private void btnCalculate_Click(object sender, RoutedEventArgs e)
         {
             AlwaysRunning();
-            if (dog.getDogBdayValid() == true)
-            {
-                dog.setDogAgeInDogYears(dog.DogYearCalculation(dog.getDogHumanAge(),dog.getDogWeight()));
+            for(int i=0;i<2; i++)
+                if (dog.getDogBdayValid() == true)
+                {
+                dog.setDogAgeInDogYears(dog.DogYearCalculation(dog.getDogHumanAge(), dog.getDogWeight()));
                 txtDogYears.Text = (dog.getDogAgeinDogYears().ToString());
-            }
+                }
         }
 
         private void calDogBirthday_GotFocus(object sender, RoutedEventArgs e)
@@ -91,9 +92,13 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
             }
             else
             {
-                DateTime pl = calDogBirthday.SelectedDate.Value;
-                dog.setDogBirthday(pl);
-                dog.setDogHumanAge(Int32.Parse(TimeSpan.Parse(DateTime.Now.Date - pl)));
+                DateTime dogBirthday = calDogBirthday.SelectedDate ?? DateTime.MinValue;
+                dog.setDogBirthday(dogBirthday);
+                TimeSpan t1 = DateTime.Today - dogBirthday;
+                int dogHumanAge = (int)((t1.TotalDays/365)-1);
+
+                dog.setDogHumanAge(dogHumanAge);
+
                 dog.setDogBdayValid(true);
                 btnCalculate.IsEnabled = true;
             }
@@ -128,6 +133,10 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
             if (txtDogWeight.Text == "")
             {
                 txtDogWeight.Text = "0";
+            }
+            else
+            {
+                dog.setDogWeight(int.Parse(txtDogWeight.Text));
             }
 
         }
