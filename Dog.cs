@@ -191,6 +191,14 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
             return months;
         }
 
-        
+        public string toString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Dog Weight: " + getDogWeight());
+            sb.AppendLine("Dog Birthday: " + getDogBirthday());
+            sb.AppendLine("Dog's Age in Human Years: " + getDogHumanAge());
+            sb.AppendLine("Dog's Age in Dog Years: " + getDogAgeinDogYears());
+            return sb.ToString();
+        }
     }
 }
