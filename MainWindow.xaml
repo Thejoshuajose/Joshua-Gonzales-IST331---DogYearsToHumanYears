@@ -30,6 +30,7 @@
         <Label x:Name="lblDogYears" Content="Dog Years" HorizontalAlignment="Left" Height="28" Margin="539,189,0,0" VerticalAlignment="Top" Width="201" FontSize="14" FontWeight="Bold"/>
         <TextBox x:Name="txtDogWeight" HorizontalAlignment="Center" Height="50" Margin="0,217,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="200" FontSize="16" Initialized="txtCurrentDate_Initialized" TextChanged="txtDogWeight_TextChanged" GotFocus="txtDogWeight_GotFocus" LostFocus="txtDogWeight_LostFocus"/>
         <Label x:Name="lblDogWeight" Content="Dog Weight" HorizontalAlignment="Center" Height="28" Margin="0,189,0,0" VerticalAlignment="Top" Width="200" FontSize="14" FontWeight="Bold"/>
+        <Button x:Name="btnToString" Content="ToString" HorizontalAlignment="Left" Height="44" Margin="640,368,0,0" VerticalAlignment="Top" Width="100" Click="btnToString_Click"/>
 
     </Grid>
 </Window>

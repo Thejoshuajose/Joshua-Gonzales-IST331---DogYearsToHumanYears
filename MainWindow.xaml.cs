@@ -145,6 +145,14 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
             }
 
         }
+
+        private void btnToString_Click(object sender, RoutedEventArgs e)
+        {
+            if (dog.getDogBdayValid() == true)
+            {
+                MessageBox.Show(dog.toString());
+            }
+        }
     }
 
 
