@@ -153,6 +153,15 @@ namespace Joshua_Gonzales___IST331___DogYearsToHumanYears
                 MessageBox.Show(dog.toString());
             }
         }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you Sure?", "Do you want to Exit?", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
+        }
     }
 
 
